@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class DataManager {
 
-    private int[] images = new int[]{
+    private static int[] images = new int[]{
             R.drawable.australia,
             R.drawable.azerbaijan,
             R.drawable.bahrain,
@@ -36,7 +36,7 @@ public class DataManager {
             R.drawable.united_states,
             R.drawable.russia
     };
-    private String[] correctAnswers = {
+    private static String[] correctAnswers = {
             "australia",
             "azerbaijan",
             "bahrain",
@@ -65,7 +65,7 @@ public class DataManager {
             "united states",
             "russia"
     };
-    private String[][] answers = {
+    private static String[][] answers = {
             new String[]{"australia", "romania", "azerbaijan", "ukraine"},
             new String[]{"azerbaijan", "ukraine", "qatar", "poland"},
             new String[]{"bahrain", "israel", "qatar", "poland"},
@@ -96,7 +96,7 @@ public class DataManager {
     };
 
 
-    public ArrayList<Question> getQuestions() {
+    public static ArrayList<Question> getQuestions() {
         ArrayList<Question> questions = new ArrayList<>();
         for (int i = 0; i < correctAnswers.length; i++) {
             Question q = new Question()

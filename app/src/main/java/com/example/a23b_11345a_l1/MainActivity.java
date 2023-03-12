@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.a23b_11345a_l1.Logic.GameManager;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
@@ -15,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private MaterialButton[] main_BTN_options;
     private ShapeableImageView[] main_IMG_hearts;
     private ShapeableImageView main_IMG_flag;
-
-    private int score = 000;
+    private GameManager gameManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViews();
+        gameManager = new GameManager(main_IMG_hearts.length);
 
-        main_LBL_score.setText(score + "");
+        refreshUI();
 
+setAnswersClickListeners();
+    }
+
+    private void setAnswersClickListeners() {
+        for (MaterialButton mb: main_BTN_options) {
+            mb.setOnClickListener(v -> clicked(mb.getText().toString()));
+        }
+    }
+
+    private void clicked(String selectedAnswer) {
+
+    }
+
+    private void refreshUI() {
     }
 
 
