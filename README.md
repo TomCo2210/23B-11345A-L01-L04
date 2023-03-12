@@ -15,9 +15,6 @@
 * Business Logic - Code Encapsulation
 * Data Models - Builder Design Pattern, Java Beans
 * Buttons - ClickListeners, Lambda functions
-* PNG vs. SVG image Assets
-* Gradle - Libraries implementations
-* Glide - Loading External Source Images
 * Vibrations
 * Toasts
 * Multiple Activities
@@ -29,4 +26,6 @@
 * Timers - Handler + Runnable, Timer + TimerTask, CountDownTimer
 * LinearLayout - Layout Weights
 * FAB - Floating Action Button
-
+* PNG vs. SVG image Assets
+* Gradle - Libraries implementations
+* Glide - Loading External Source Images
