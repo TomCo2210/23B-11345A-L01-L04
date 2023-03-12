@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private MaterialTextView main_LBL_score;
-    private MaterialButton main_BTN_yes;
-    private MaterialButton main_BTN_no;
+    private MaterialButton[] main_BTN_options;
+    private ShapeableImageView[] main_IMG_hearts;
+    private ShapeableImageView main_IMG_flag;
 
     private int score = 000;
 
@@ -25,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         main_LBL_score.setText(score + "");
 
-        main_BTN_yes.setOnClickListener(v -> increaseScore());
-        main_BTN_no.setOnClickListener(v -> decreaseScore());
     }
+
 
     private void decreaseScore() {
         this.score -= 100;
@@ -40,8 +41,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void findViews() {
+        main_BTN_options = new MaterialButton[] {
+                findViewById(R.id.main_BTN_option1),
+                findViewById(R.id.main_BTN_option2),
+                findViewById(R.id.main_BTN_option3),
+                findViewById(R.id.main_BTN_option4)};
+        main_IMG_hearts = new ShapeableImageView[]{
+                findViewById(R.id.main_IMG_heart1),
+                findViewById(R.id.main_IMG_heart2),
+                findViewById(R.id.main_IMG_heart3)};
         main_LBL_score = findViewById(R.id.main_LBL_score);
-        main_BTN_yes = findViewById(R.id.main_BTN_yes);
-        main_BTN_no = findViewById(R.id.main_BTN_no);
+        main_IMG_flag = findViewById(R.id.main_IMG_flag);
     }
 }

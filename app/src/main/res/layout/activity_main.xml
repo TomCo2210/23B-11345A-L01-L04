@@ -61,6 +61,34 @@
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <LinearLayout
+        android:id="@+id/main_LAYOUT_buttons1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/main_LAYOUT_buttons2"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_option1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Op1" />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_option2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Op2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_LAYOUT_buttons2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -68,21 +96,21 @@
         android:layout_marginBottom="32dp">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/main_BTN_yes"
+            android:id="@+id/main_BTN_option3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Yes" />
+            android:text="Op3" />
 
         <View
             android:layout_width="16dp"
             android:layout_height="0dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/main_BTN_no"
+            android:id="@+id/main_BTN_option4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="No" />
+            android:text="Op4" />
     </LinearLayout>
 </RelativeLayout>
