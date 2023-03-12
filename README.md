@@ -20,12 +20,13 @@
 * Glide - Loading External Source Images
 * Vibrations
 * Toasts
+* Multiple Activities
+* Manifest File
+* Intents
+* Passing Data Between Activities
 
 ## L04:
 * Timers - Handler + Runnable, Timer + TimerTask, CountDownTimer
 * LinearLayout - Layout Weights
 * FAB - Floating Action Button
-* Multiple Activities
-* Manifest File
-* Intents
-* Passing Data Between Activities
+
