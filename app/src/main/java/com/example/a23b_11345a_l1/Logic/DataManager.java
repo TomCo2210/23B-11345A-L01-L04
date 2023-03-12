@@ -65,7 +65,35 @@ public class DataManager {
             "united states",
             "russia"
     };
-    private String[][] answers;
+    private String[][] answers = {
+            new String[]{"australia", "romania", "azerbaijan", "ukraine"},
+            new String[]{"azerbaijan", "ukraine", "qatar", "poland"},
+            new String[]{"bahrain", "israel", "qatar", "poland"},
+            new String[]{"belgium", "switzerland", "france", "south korea"},
+            new String[]{"bolivia", "netherlands", "belgium", "switzerland"},
+            new String[]{"bulgaria", "singapore", "costa rica", "thailand"},
+            new String[]{"canada", "italy", "hungary", "qatar"},
+            new String[]{"costa rica", "thailand", "israel", "netherlands"},
+            new String[]{"france", "south korea", "netherlands", "spain"},
+            new String[]{"germany", "spain", "ukraine", "australia"},
+            new String[]{"hungary", "qatar", "south korea", "netherlands"},
+            new String[]{"ireland", "japan", "france", "south korea"},
+            new String[]{"poland", "united states", "russia", "hungary"},
+            new String[]{"romania", "russia", "hungary", "qatar"},
+            new String[]{"ukraine", "australia", "france", "bahrain"},
+            new String[]{"israel", "azerbaijan", "switzerland", "bahrain"},
+            new String[]{"switzerland", "bahrain", "ukraine", "australia"},
+            new String[]{"netherlands", "belgium", "hungary", "qatar"},
+            new String[]{"singapore", "bolivia", "russia", "bahrain"},
+            new String[]{"italy", "bulgaria", "ireland", "japan"},
+            new String[]{"thailand", "canada", "australia", "costa rica"},
+            new String[]{"south korea", "costa rica", "azerbaijan", "spain"},
+            new String[]{"spain", "france", "bahrain", "thailand"},
+            new String[]{"qatar", "poland", "belgium", "bahrain"},
+            new String[]{"japan", "hungary", "bolivia", "south korea"},
+            new String[]{"united states", "ireland", "bulgaria", "japan"},
+            new String[]{"russia", "poland", "switzerland", "bahrain"}
+    };
 
 
     public ArrayList<Question> getQuestions() {
