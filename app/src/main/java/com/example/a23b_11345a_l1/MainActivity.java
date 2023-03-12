@@ -2,13 +2,20 @@ package com.example.a23b_11345a_l1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 
 import com.example.a23b_11345a_l1.Logic.GameManager;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,35 +35,50 @@ public class MainActivity extends AppCompatActivity {
 
         refreshUI();
 
-setAnswersClickListeners();
+        setAnswersClickListeners();
     }
 
     private void setAnswersClickListeners() {
-        for (MaterialButton mb: main_BTN_options) {
+        for (MaterialButton mb : main_BTN_options) {
             mb.setOnClickListener(v -> clicked(mb.getText().toString()));
         }
     }
 
     private void clicked(String selectedAnswer) {
-
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        gameManager.checkAnswer(getApplicationContext() ,v, selectedAnswer);
+        refreshUI();
     }
 
     private void refreshUI() {
+        if (gameManager.isGameEnded()){
+            openScoreScreen("Winner", gameManager.getScore());
+        }else if (gameManager.isLose()){
+            openScoreScreen("Game Over", gameManager.getScore());
+        }else{
+            main_IMG_flag.setImageResource(gameManager.getCurrentQuestion().getImageResource());
+            main_LBL_score.setText(""+ gameManager.getScore());
+            ArrayList<String> answers = new ArrayList<>(Arrays.asList(gameManager.getCurrentQuestion().getAnswers()));
+            Collections.shuffle(answers);
+            for (int i = 0; i < answers.size(); i++) {
+                main_BTN_options[i].setText(answers.get(i));
+            }
+            if(gameManager.getWrong() != 0)
+                main_IMG_hearts[main_IMG_hearts.length - gameManager.getWrong()].setVisibility(View.INVISIBLE);
+        }
     }
 
-
-    private void decreaseScore() {
-        this.score -= 100;
-        main_LBL_score.setText(score + "");
+    private void openScoreScreen(String status, int score) {
+        Intent scoreIntent = new Intent(this, ScoreActivity.class);
+        scoreIntent.putExtra(ScoreActivity.KEY_SCORE, score);
+        scoreIntent.putExtra(ScoreActivity.KEY_STATUS, status);
+        startActivity(scoreIntent);
+        finish();
     }
 
-    private void increaseScore() {
-        this.score += 100;
-        main_LBL_score.setText(score + "");
-    }
 
     private void findViews() {
-        main_BTN_options = new MaterialButton[] {
+        main_BTN_options = new MaterialButton[]{
                 findViewById(R.id.main_BTN_option1),
                 findViewById(R.id.main_BTN_option2),
                 findViewById(R.id.main_BTN_option3),

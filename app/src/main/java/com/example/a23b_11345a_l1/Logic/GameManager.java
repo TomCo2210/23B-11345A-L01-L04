@@ -1,8 +1,10 @@
 package com.example.a23b_11345a_l1.Logic;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.widget.Toast;
 
 import com.example.a23b_11345a_l1.Models.Question;
 
@@ -50,10 +52,11 @@ public class GameManager {
         return life == wrong;
     }
 
-    public void checkAnswer(Vibrator v, String selectedAnswer) {
+    public void checkAnswer(Context context, Vibrator v, String selectedAnswer) {
         if (getCurrentQuestion().getCorrectAnswer().equals(selectedAnswer)) //answer was correct
         {
             score += CORRECT_ANSWER_SCORE;
+            Toast.makeText(context,"🥳 Yay!",Toast.LENGTH_LONG).show();
         } else { // incorrect
             wrong++;
             // Vibrate for 500 milliseconds
