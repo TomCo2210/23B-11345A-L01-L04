@@ -1,6 +1,7 @@
 package com.example.a23b_11345a_l1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.example.a23b_11345a_l1.Logic.GameManager;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -19,6 +21,7 @@ import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
+    private AppCompatImageView main_IMG_background;
     private MaterialTextView main_LBL_score;
     private MaterialButton[] main_BTN_options;
     private ShapeableImageView[] main_IMG_hearts;
@@ -32,7 +35,12 @@ public class MainActivity extends AppCompatActivity {
 
         findViews();
         gameManager = new GameManager(main_IMG_hearts.length);
-
+        Glide
+                .with(this)
+                .load("https://images.pexels.com/photos/1450082/pexels-photo-1450082.jpeg")
+                .centerCrop()
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(main_IMG_background);
         refreshUI();
 
         setAnswersClickListeners();
@@ -78,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void findViews() {
+        main_IMG_background = findViewById(R.id.main_IMG_background);
         main_BTN_options = new MaterialButton[]{
                 findViewById(R.id.main_BTN_option1),
                 findViewById(R.id.main_BTN_option2),
