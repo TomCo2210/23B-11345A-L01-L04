@@ -20,9 +20,9 @@ public class TimerActivity extends AppCompatActivity {
 
     long startTime = 0;
 
-    final Handler handler = new Handler();
+    private final Handler handler = new Handler();
 
-    Runnable runnable = new Runnable() {
+    private Runnable runnable = new Runnable() {
         @Override
         public void run() {
             handler.postDelayed(this, DELAY); //Do it again in a second

@@ -52,12 +52,13 @@ public class TimerActivity2 extends AppCompatActivity {
     }
 
     private void stopTime() {
-        timer.cancel();
+        if (timer != null)
+            timer.cancel();
     }
 
     private void startTime() {
-        startTime = System.currentTimeMillis();
         if (timer == null) {
+            startTime = System.currentTimeMillis();
             timer = new Timer();
             timer.scheduleAtFixedRate(new TimerTask() {
                 @Override
